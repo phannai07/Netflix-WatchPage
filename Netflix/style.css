@@ -1,0 +1,325 @@
+* {  
+	margin: 0;  
+	padding: 0;  
+	box-sizing: border-box;  
+}  
+
+@media screen and (min-width: 1016px) {
+
+	body, html {  
+		width: 100%;  
+		height: 100%;  
+		position: fixed;  
+		overflow: hidden; /* Prevent overall page scroll */
+		display: grid;  
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	}   
+
+	.container {  
+		width: 100%;  
+		height: 100vh;  
+		background-image: url(img/image-background.jpeg);  
+		background-size: cover; /* Ensures the image covers the entire area */  
+		background-position: center; /* Centers the image */  
+		position: relative;  
+	}   
+
+	.overlay {  
+		position: absolute; /* Positioning overlay relative to container */  
+		top: 0;  
+		left: 0;  
+		width: 100%;  
+		height: 100%;  
+		display: flex; /* Enable flexbox on overlay */
+		justify-content: center; /* Horizontally center content */
+		align-items: center; /* Vertically center content */
+		background: linear-gradient(  
+			rgba(0, 0, 0, 0.8),  
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.8)  
+		);  
+	}
+
+	.container .overlay .layer-body {  
+		width: 60%;  
+		height: 100%;  
+		background-color: black;  
+		display: flex;  
+		flex-direction: column;  
+		overflow: auto; /* Enable scrolling for the entire layer-body */
+		scroll-behavior: smooth; /* Optional: Smooth scrolling */
+	}
+
+	.container .overlay .layer-body .video-img {  
+		width: 100%;  
+		height: 70%; /* Adjust as needed */
+		background-image: url(./img/img-.gif); 
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		flex-shrink: 0; /* Prevent the video image from shrinking */
+	}
+
+	.container .overlay .layer-body .video-img .btn {
+		display: flex;
+	}
+
+	.container .overlay .layer-body .video-img .cancel .icon-cancel {
+		margin: 10px;
+		font-size: 25px;
+		color: rgba(255, 255, 255, 0.454);
+		float: right;
+		cursor: pointer;
+	}
+
+	.container .overlay .layer-body .video-img .btn .btn-left button {
+		margin: 15px;
+		margin-left: 60px;
+		margin-top: 330px;
+		width: 90px;
+		height: 35px;
+		/* color transparents */
+		background-color: white;
+		color: black;
+		border: solid rgba(240, 248, 255, 0.225) 1px; 
+		border-radius: 3px;
+		cursor: pointer;
+		transition: transform 0.3s ease;
+	}
+
+	.container .overlay .layer-body .video-img .btn .btn-middle .icon-add {
+		margin: 15px;
+		margin-top: 330px;
+		margin-left: -0px;
+		width: 90px;
+		height: 35px;
+		font-size: 30px;
+		/* color transparents */
+		color: rgba(255, 255, 255, 0.703);
+		cursor: pointer;
+		transition: transform 0.3s ease;
+	}
+
+	/* .container .overlay .layer-body .video-img .btn .btn-right {
+
+	} */
+
+	.container .overlay .layer-body .video-img .btn .btn-left button:hover {
+		transform: scale(1.05);
+	}
+
+	/* ==================Text Detail==================== */
+	.container .overlay .layer-body .text-detail {  
+		width: 100%;
+		/* background-color: white; */
+		display: flex;
+	}
+
+	.container .overlay .layer-body .text-detail .meaning-story {
+		padding: 20px;
+		width: 50%;
+		/* background-color: blueviolet; */
+		color: white;
+	}
+
+	.container .overlay .layer-body .text-detail .meaning-story span {
+		color: rgba(255, 255, 255, 0.387);
+	} 
+
+	.container .overlay .layer-body .text-detail .about-story p {
+		margin-bottom: 20px;
+	}
+
+	.container .overlay .layer-body .text-detail .about-story {
+		padding: 20px;
+		width: 50%;
+		/* background-color: yellow; */
+		color: white;
+	}
+
+	.container .overlay .layer-body .text-detail .about-story span{
+		color: rgba(255, 255, 255, 0.387);
+	}
+
+	.container .overlay .layer-body .text-detail .icon-like {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		width: 200px;
+		height: 5vh;
+		display: flex;
+	}
+
+	.container .overlay .layer-body .text-detail .icon-like .like {
+		width: 30px;
+		height: 100%;
+		display: flex;
+		background-color: #C02125;
+		justify-content: center; 
+		align-items: center;
+		border-radius: 2px;
+		cursor: pointer;
+	}
+
+	.container .overlay .layer-body .text-detail .icon-like .text {
+		margin-left: 3px;
+		width: 100px;
+		display: flex;
+		justify-content: center; 
+		align-items: center;
+	}
+
+	/* =====================Scroll===================== */
+
+	.container .overlay .layer-body::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	.container .overlay .layer-body::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.203); /* Customize scrollbar color */
+		border-radius: 10px;
+	}
+	/* ==============More Like This============== */
+	.container .overlay .layer-body h1 {
+		color: white;
+		padding: 20px;
+
+	}
+
+	/* =============== Row (for card movie)============== */
+	.container .overlay .layer-body .row {
+		margin: 10px;
+		display: flex;
+		justify-content: space-between; /* Add space between movie cards */
+		gap: 10px; /* Optional: Control the spacing between cards */
+	}
+
+	.container .overlay .layer-body .row .movie-card {
+		/* flex: 0 0 calc(33.33% - 10px);  */
+		/* Adjust width to 3 cards per row with spacing */
+		width: 54%;
+		height: 44vh; /* Maintain a 2:3 aspect ratio */
+		background-color: aqua;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.container .overlay .layer-body .row .movie-card .img {
+		width: 100%;
+		height: 22vh; /* Maintain a 2:3 aspect ratio */
+		background-color: blue;
+		/* transition: transform 0.3s ease; */
+		cursor: pointer;
+	}
+
+	.container .overlay .layer-body .row .movie-card .img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.container .overlay .layer-body .row .movie-card .detail {
+		padding: 13px;
+		width: 100%;
+		height: 22vh; /* Maintain a 2:3 aspect ratio */
+		background-color: #2F2E30;
+	}
+
+	/* ===================Card Head Detail============= */
+	.container .overlay .layer-body .row .movie-card .detail .head {
+		width: 100%;
+		height: 5vh;
+		/* background-color: aquamarine; */
+		display: flex;
+	}
+
+	.container .overlay .layer-body .row .movie-card .detail .head .btn-num {
+		width: 50px;
+		height: 100%;
+		/* background-color: blue; */
+		display: flex; /* Use flexbox for easy centering */
+		justify-content: center; /* Center horizontally */
+		align-items: center; /* Center vertically */
+	}
+
+	.container .overlay .layer-body .row .movie-card .detail .head .btn-num button {
+		width: 30px;
+		height: 60%;
+		background-color: transparent;
+		color: rgba(255, 255, 255, 0.387);
+		border: solid 1px rgba(255, 255, 255, 0.387);
+		cursor: pointer;
+
+	}
+
+	.container .overlay .layer-body .row .movie-card .detail .head .year {
+		width: 85px;
+		height: 100%;
+		/* background-color: yellow; */
+		color: rgba(255, 255, 255, 0.387);
+		display: flex; /* Use flexbox for easy centering */
+		justify-content: center; /* Center horizontally */
+		align-items: center; /* Center vertically */
+		font-size: 13px;
+	}
+
+	.container .overlay .layer-body .row .movie-card .detail .head .icon {
+		width: 100%;
+		height: 100%;
+		/* background-color: green; */
+		color: rgba(255, 255, 255, 0.387);
+		display: flex; /* Use flexbox for easy centering */
+		justify-content: right; /* Center horizontally */
+		align-items: center;
+		font-size: 27px;
+		cursor: pointer;
+	}
+
+	/* ===================Card Body Detail============= */
+	.container .overlay .layer-body .row .movie-card .detail .body {
+		padding-top: 5px;
+		width: 100%;
+		height: 12vh;
+		/* background-color: yellow; */
+		color: white;
+	}
+
+	/* =================== Footer ================= */
+	.container .overlay .layer-body footer hr {
+		height: 1px;
+		background-color: rgba(255, 255, 255, 0.387); 
+		border: none;
+	}
+
+	.container .overlay .layer-body footer .icon-down .down {
+		display: flex; /* Use flexbox for easy centering */
+		justify-content: center; /* Center horizontally */
+		align-items: center; 
+		color: rgba(255, 255, 255, 0.387);
+		font-size: 27px;
+		cursor: pointer;
+	}
+
+	.container .overlay .layer-body footer h1 {
+		padding: 20px;
+		color: white;
+	}
+
+	.container .overlay .layer-body footer .t-text {
+		padding-left: 20px;
+		margin-bottom: 40px;
+		color: white;
+	}
+
+	.container .overlay .layer-body footer .t-text p {
+		margin-bottom: 10px;
+	}
+
+	.container .overlay .layer-body footer .t-text span {
+		color: rgba(255, 255, 255, 0.387);
+	}
+
+	/* .container .overlay .layer-body .row .movie-card .img:hover {
+		transform: scale(1.05);
+	} */
+
+}
